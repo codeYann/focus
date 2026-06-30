@@ -23,6 +23,16 @@ type Session struct {
 	Timing    Timing        // Timestamps for state transitions.
 }
 
+// New creates a Session with the given ID and configuration.
+// The session starts in the Idle phase with no time remaining.
+func New(ID string, config Config) *Session {
+	return &Session{
+		ID:     ID,
+		Config: config,
+		Phase:  Idle,
+	}
+}
+
 // IsRunning reports whether the session is in a focus or break period.
 func (s Session) IsRunning() bool {
 	return (s.Phase == Focus || s.Phase == Break)
