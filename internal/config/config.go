@@ -1,6 +1,10 @@
 package config
 
-import "time"
+import (
+	"time"
+
+	"github.com/codeYann/focus/internal/domain"
+)
 
 // DefaultFocusDuration is the default length of a focus session (25 minutes).
 var DefaultFocusDuration = 25 * time.Minute
@@ -24,5 +28,13 @@ func Default() Config {
 		FocusDuration: DefaultFocusDuration,
 		BreakDuration: DefaultBreakDuration,
 		Notify:        DefaultNotify,
+	}
+}
+
+// Domain converts the application-level config to a domain-level Config.
+func (c Config) Domain() domain.Config {
+	return domain.Config{
+		Focus: c.FocusDuration,
+		Break: c.BreakDuration,
 	}
 }
