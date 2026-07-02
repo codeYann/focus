@@ -25,8 +25,8 @@ type Session struct {
 
 // New creates a Session with the given ID and configuration.
 // The session starts in the Idle phase with no time remaining.
-func New(ID string, config Config) *Session {
-	return &Session{
+func New(ID string, config Config) Session {
+	return Session{
 		ID:     ID,
 		Config: config,
 		Phase:  Idle,
