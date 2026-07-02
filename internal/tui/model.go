@@ -70,7 +70,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 // View renders the current session state and keybindings to the terminal.
 func (m Model) View() tea.View {
 	if m.error != nil {
-		return tea.NewView(fmt.Sprintf("\n Erro ao apresentar uma nova sessão: %v\n\n", m.error))
+		return tea.NewView(fmt.Sprintf("\n Erro ao executar comando: %v\n\n", m.error))
 	}
 
 	var s strings.Builder
