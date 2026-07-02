@@ -11,8 +11,8 @@ import (
 // Run creates a new focus session and starts the Bubble Tea program.
 // It returns an error if the program fails to run.
 func Run(cfg config.Config) error {
-	ID := uuid.New()
-	session := domain.New(ID.String(), cfg.Domain())
+	id := uuid.New()
+	session := domain.New(id.String(), cfg.Domain())
 
 	model := NewModel(session)
 
