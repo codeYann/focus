@@ -1,8 +1,16 @@
 // Package main provides the focus CLI command.
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/codeYann/focus/internal/config"
+	"github.com/codeYann/focus/internal/tui"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	error := tui.Run(config.Default())
+	if error != nil {
+		log.Fatal(error)
+	}
 }
