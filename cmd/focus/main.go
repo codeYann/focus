@@ -9,8 +9,7 @@ import (
 )
 
 func main() {
-	error := tui.Run(config.Default())
-	if error != nil {
-		log.Fatal(error)
+	if err := tui.Run(config.Default()); err != nil {
+		log.Fatal(err)
 	}
 }
